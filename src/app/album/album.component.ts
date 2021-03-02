@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as data from '../data/SearchResultsAlbum.json';
 
 @Component({
   selector: 'app-album',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./album.component.css']
 })
 export class AlbumComponent implements OnInit {
-
+  album = null;
   constructor() { }
 
   ngOnInit(): void {

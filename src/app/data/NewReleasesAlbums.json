@@ -1,6 +1,3 @@
-// 20210228223457
-// https://pat-crawford-sdds.netlify.app/shared/winter-2021/web422/A4/data/NewReleasesAlbums.json
-
 {
     "albums": {
         "href": "https://api.spotify.com/v1/browse/new-releases?offset=0&limit=20",

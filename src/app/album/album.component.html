@@ -10,6 +10,9 @@
                 <strong>Popularity: </strong>77<br /><br />
 
                 <mat-chip-list aria-label="Artist selection">
+                    <div *ngFor="let artist from album">
+                        <mat-chip>{{artist.artists.name}}</mat-chip>
+                    </div>
                     <mat-chip>Judas and the Black Messiah</mat-chip>
                     <mat-chip>Possible Second Artist</mat-chip>
                 </mat-chip-list>

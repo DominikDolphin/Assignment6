@@ -1,6 +1,3 @@
-// 20210228223759
-// https://pat-crawford-sdds.netlify.app/shared/winter-2021/web422/A4/data/SearchResultsAlbums.json
-
 {
     "albums": {
         "href": "https://api.spotify.com/v1/search?query=Bob+Marley&type=album&offset=0&limit=20",

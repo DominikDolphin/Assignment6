@@ -1,1 +1,30 @@
 <p>artist-discography works!</p>
+
+<mat-card [style.background]="'url(' + 'https://i.scdn.co/image/a402db0dbd2b33ca7141ea0fd31e4b81e178c39a' + ') no-repeat center center'" [style.background-size]="'cover'" [style.height]="'450px'">
+</mat-card>
+<br /><br />
+<h1>Full Discography</h1>
+
+<div fxLayout="row wrap" fxLayout.xs="column">
+
+    <!-- Single "Responsive" Card-->
+    <div *ngFor="let album of albums">
+        <div fxFlex [style.margin]="'20px'">
+            <mat-card [style.min-width]="'200px'">
+                <mat-card-header>
+                    <mat-card-title>{{album.name}}</mat-card-title>
+
+                    <mat-card-subtitle>
+                        {{this.artist.name}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+
+                <img mat-card-image class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273b02a3380a69bd2418a1f68f1" alt="album art">
+                <strong>Release Date: </strong>2021/02/12<br />
+                <strong>Tracks: </strong>22
+            </mat-card>
+        </div>
+    </div>
+    <!-- -->
+
+</div>

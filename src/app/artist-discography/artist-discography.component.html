@@ -1,5 +1,4 @@
-<p>artist-discography works!</p>
-
+<h1>{{artist.name}}</h1>
 <mat-card [style.background]="'url(' + 'https://i.scdn.co/image/a402db0dbd2b33ca7141ea0fd31e4b81e178c39a' + ') no-repeat center center'" [style.background-size]="'cover'" [style.height]="'450px'">
 </mat-card>
 <br /><br />
@@ -13,7 +12,6 @@
             <mat-card [style.min-width]="'200px'">
                 <mat-card-header>
                     <mat-card-title>{{album.name}}</mat-card-title>
-
                     <mat-card-subtitle>
                         {{this.artist.name}}
                     </mat-card-subtitle>

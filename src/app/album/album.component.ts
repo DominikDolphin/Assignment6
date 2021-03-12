@@ -11,7 +11,8 @@ export class AlbumComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.album = data;
+    this.album = (data as any).default;
+    console.log(this.album);
   }
 
 }

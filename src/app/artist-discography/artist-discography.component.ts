@@ -13,7 +13,7 @@ export class ArtistDiscographyComponent implements OnInit {
 
   ngOnInit(): void {
     this.albums = albumData.albums.items;
-    this.artist = artistData;
+    this.artist = (artistData as any).default;
   }
 
 }

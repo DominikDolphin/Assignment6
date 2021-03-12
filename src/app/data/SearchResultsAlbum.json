@@ -10,6 +10,7 @@
         "type": "artist",
         "uri": "spotify:artist:2QsynagSdAqZj3U9HgDzjD"
     }],
+
     "available_markets": [
         "AD",
         "AE",
@@ -3157,4 +3158,5 @@
     },
     "type": "album",
     "uri": "spotify:album:1vHvJVBK0WnpbYFw4f4UTD"
+
 }

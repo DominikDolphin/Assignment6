@@ -24,6 +24,11 @@ import { NewReleasesComponent } from './new-releases/new-releases.component';
 import { AlbumComponent } from './album/album.component';
 import { ArtistDiscographyComponent } from './artist-discography/artist-discography.component';
 
+//Assignment 5 modules
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -37,6 +42,9 @@ import { ArtistDiscographyComponent } from './artist-discography/artist-discogra
     
   ],
   imports: [
+    HttpClientModule,
+    FormsModule,
+    MatSnackBarModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

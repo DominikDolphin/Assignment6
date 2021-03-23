@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class SpotifyTokenService implements OnDestroy {
 
-  private clientID = "b83075bc4bc84ef2959d7c300290f03d";
-  private clientSecret = "bc712cf7725748ec8575459facf840b5";
+  private clientID = "";
+  private clientSecret = "";
 
   private accessToken: string;
   private accessTokenExpires: Date;

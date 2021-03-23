@@ -9,7 +9,7 @@ import { mergeMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MusicDataService {
-
+  favouritesList : Array<any> = [];
   constructor(private spotifyToken: SpotifyTokenService, private http: HttpClient) { }  
 
   getNewReleases(): Observable<any> {
@@ -18,4 +18,50 @@ export class MusicDataService {
       }));
   }
 
+  getArtistById(id): Observable<any> {
+    return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
+      return this.http.get<any>(`https://api.spotify.com/v1/artists/${id}`, { headers: { "Authorization": `Bearer ${token}` } });
+    }));
+  }
+
+  getAlbumsByArtistId(id): Observable<any> {
+    return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
+      return this.http.get<any>(`https://api.spotify.com/v1/artists/${id}/albums?limit=50`, { headers: { "Authorization": `Bearer ${token}` } });
+    }));
+  }
+
+  getAlbumById(id): Observable<any> {
+    return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
+      return this.http.get<any>(`https://api.spotify.com/v1/albums/${id}`, { headers: { "Authorization": `Bearer ${token}` } });
+    }));
+  }
+
+  searchArtists(searchString): Observable<any> {
+    return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
+      return this.http.get<any>(`https://api.spotify.com/v1/search?q=${searchString}&type=artist&limit=50`, { headers: { "Authorization": `Bearer ${token}` } });
+    }));
+  }
+
+  addToFavourites(id){
+    if (!id || id >= 50) 
+      return false
+    else {
+      this.favouritesList.push(id)
+      return true
+    }
+  }
+
+  removeFromFavourites(id) : Observable<any>{
+    this.favouritesList.splice(this.favouritesList.indexOf(id),1);
+    return this.getFavourites();
+  }
+
+  getFavourites() : Observable<any>{
+    if (this.favouritesList.length > 0){
+      let FavouritesListItems = this.favouritesList.join(); //adds comma seperated between elements
+      return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
+        return this.http.get<any>(`https://api.spotify.com/v1/tracks?ids=${FavouritesListItems}`, { headers: { "Authorization": `Bearer ${token}` } });
+      }));
+    } else return new Observable(o=>{o.next([])});
+  }
 }

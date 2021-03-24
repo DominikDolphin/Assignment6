@@ -19,5 +19,4 @@ export class NewReleasesComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.subReleases.unsubscribe();
   }
-
 }

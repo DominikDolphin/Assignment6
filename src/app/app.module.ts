@@ -28,6 +28,7 @@ import { ArtistDiscographyComponent } from './artist-discography/artist-discogra
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 
@@ -39,6 +40,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NewReleasesComponent,
     AlbumComponent,
     ArtistDiscographyComponent,
+    SearchResultComponent,
     
   ],
   imports: [

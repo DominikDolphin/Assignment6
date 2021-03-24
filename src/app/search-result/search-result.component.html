@@ -15,8 +15,8 @@
                 </mat-card-header>
                 <img routerLink="/artist" mat-card-image class="album-cover" src={{search.images[0].url}} alt="artist art">
                 <mat-card-content>
-                    <strong>Followers: </strong><br />
-                    <strong>Popularity: </strong>Popularity for Some Artist
+                    <strong>Followers: </strong>{{search.followers.total}}<br />
+                    <strong>Popularity: </strong>{{search.popularity}}
                 </mat-card-content>
             </mat-card>
         </div>

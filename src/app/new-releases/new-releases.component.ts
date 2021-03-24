@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import * as data from '../data/NewReleasesAlbums.json';
+//import * as data from '../data/NewReleasesAlbums.json';
 import {MusicDataService} from '../music-data.service';
 
 @Component({
@@ -10,16 +10,14 @@ import {MusicDataService} from '../music-data.service';
 export class NewReleasesComponent implements OnInit, OnDestroy {
 
   releases = null;
-  //public releases = null;
-  //constructor(public data : MusicDataService) { }
-  constructor() { }
+  private subReleases;
+  constructor(public musicService : MusicDataService) { }
   ngOnInit(): void {
-    this.releases = data.albums.items;
-  // this.releases = this.data.getNewReleases().subscribe();
+    this.subReleases = this.musicService.getNewReleases().subscribe(data => this.releases = data.albums.items)
   }
 
   ngOnDestroy(){
-    //this.releases.unsubscribe();
+    this.subReleases.unsubscribe();
   }
 
 }

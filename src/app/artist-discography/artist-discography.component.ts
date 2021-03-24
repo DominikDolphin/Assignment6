@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as albumData from '../data/SearchResultsAlbums.json';
 import * as artistData from '../data/SearchResultsArtist.json';
 import { ActivatedRoute } from '@angular/router';
@@ -21,15 +21,11 @@ export class ArtistDiscographyComponent implements OnInit {
   constructor(private route : ActivatedRoute, private data: MusicDataService) {}
   ngOnInit(): void {
     this.idSub = this.route.params.subscribe(params => {
-      this.id = params['id']; // (+) converts string 'id' to a number
+      this.id = params['id'];
       this.albumSub = this.data.getAlbumsByArtistId(this.id).subscribe(data => this.albums = data.items);
       this.artistSub = this.data.getArtistById(this.id).subscribe(data => this.artist = data);
    });
 
-
-   
-    //this.artist = (artistData as any).default;
-    //this.albums = albumData.albums.items;
   }
 
   ngOnDestroy() {

@@ -9,7 +9,7 @@ const routes: Routes = [
 
   { path: 'newReleases', component: NewReleasesComponent },
   { path: 'artist/:id', component: ArtistDiscographyComponent },
-  { path: 'album', component: AlbumComponent },
+  { path: 'album/:id', component: AlbumComponent },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/album', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }

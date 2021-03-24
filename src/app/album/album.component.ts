@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import * as data from '../data/SearchResultsAlbum.json';
 
 @Component({

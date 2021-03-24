@@ -10,13 +10,13 @@
                         <mat-card-title>{{user.name}}</mat-card-title>
                         <mat-card-subtitle>New Release</mat-card-subtitle>
                     </mat-card-header>
-                    <img mat-card-image class="album-cover" routerLink="/album" src={{user.images[0].url}} alt="album art">
+                    <img mat-card-image class="album-cover" routerLink="['/album', releases.id]" src={{user.images[0].url}} alt="album art">
                     <strong>Release Date: </strong>{{user.release_date}}<br />
                     <strong>Tracks: </strong>{{user.total_tracks}}<br /><br />
                     <mat-card-content>
                         <mat-chip-list aria-label="Artist selection">
                             <div *ngFor="let artist of user.artists">
-                                <a routerLink="/artist">
+                                <a routerLink="['/artist', artist.id]">
                                     <mat-chip>{{artist.name}}</mat-chip>
                                 </a>
 

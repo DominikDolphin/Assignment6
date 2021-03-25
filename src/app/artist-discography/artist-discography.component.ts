@@ -1,6 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import * as albumData from '../data/SearchResultsAlbums.json';
-import * as artistData from '../data/SearchResultsArtist.json';
 import { ActivatedRoute } from '@angular/router';
 import {MusicDataService} from '../music-data.service';
 @Component({

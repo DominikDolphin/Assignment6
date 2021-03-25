@@ -2,7 +2,6 @@ import { Component, OnInit, Inject, OnDestroy} from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
 import { ActivatedRoute } from '@angular/router';
 import {MusicDataService} from '../music-data.service';
-import * as data from '../data/SearchResultsAlbum.json';
 
 @Component({
   selector: 'app-album',

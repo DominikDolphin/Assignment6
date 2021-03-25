@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'artist/:id', component: ArtistDiscographyComponent },
   { path: 'album/:id', component: AlbumComponent },
   { path: 'about', component: AboutComponent },
-  { path: '', redirectTo: '/album', pathMatch: 'full' },
+  { path: '', redirectTo: '/newReleases', pathMatch: 'full' }, ///originally linked to /album, but that does not exist anymore
   { path: '**', component: NotFoundComponent }
 ];
 

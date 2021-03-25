@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-//import * as data from '../data/NewReleasesAlbums.json';
 import {MusicDataService} from '../music-data.service';
 
 @Component({

@@ -9,6 +9,7 @@
 ********************************************************************************/
 
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,4 +18,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'web422-a4';
+  searchString: string;
+
+  constructor( private router: Router ){}
+
+  handleSearch(){
+    console.log("saechring!!");
+    this.router.navigate(['/search'], {queryParams: {q: this.searchString}});
+  }
 }

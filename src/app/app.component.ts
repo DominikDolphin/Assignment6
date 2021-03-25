@@ -23,7 +23,6 @@ export class AppComponent {
   constructor( private router: Router ){}
 
   handleSearch(){
-    console.log("saechring!!");
     this.router.navigate(['/search'], {queryParams: {q: this.searchString}});
   }
 }

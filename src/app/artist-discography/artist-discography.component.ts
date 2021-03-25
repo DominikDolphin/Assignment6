@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MusicDataService} from '../music-data.service';
+
 @Component({
   selector: 'app-artist-discography',
   templateUrl: './artist-discography.component.html',
@@ -33,11 +34,9 @@ export class ArtistDiscographyComponent implements OnInit {
 
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.idSub.unsubscribe();
     this.artistSub.unsubscribe();
     this.albumSub.unsubscribe();
-    
-    
   }
 }

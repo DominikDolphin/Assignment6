@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {MusicDataService} from '../music-data.service';
 @Component({
   selector: 'app-favourites',
@@ -17,6 +17,11 @@ export class FavouritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.favSub = this.musicData.getFavourites().subscribe(data=> this.favourites = data.tracks);
+  }
+  
+  ngOnDestroy(): void {
+    this.favSub.unsubscribe();
+    this.removeSub.unsubscribe();
   }
   
 }

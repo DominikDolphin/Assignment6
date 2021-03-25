@@ -24,4 +24,8 @@ export class SearchResultComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void{
+    this.paramSub.unsubscribe();
+    this.searchSub.unsubscribe();
+  }
 }

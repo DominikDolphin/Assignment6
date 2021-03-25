@@ -4,7 +4,7 @@
 *  assignment has been copied manually or electronically from any other source (including web sites) or 
 *  distributed to other students.
 * 
-*  Name: Dominik  Student ID:   Date: 
+*  Name: Dominik Thibaudeau  Student ID: 110924198  Date: 24/03/2021
 *
 ********************************************************************************/
 
@@ -24,5 +24,6 @@ export class AppComponent {
 
   handleSearch(){
     this.router.navigate(['/search'], {queryParams: {q: this.searchString}});
+    this.searchString = "";
   }
 }

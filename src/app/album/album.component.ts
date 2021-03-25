@@ -25,10 +25,6 @@ export class AlbumComponent implements OnInit {
   constructor(@Inject(MatSnackBar) public snackBar: any, private route : ActivatedRoute, private musicData: MusicDataService) { }
 
   ngOnInit(): void {
-    this.album = (data as any).default;
-    console.log(this.album);
-    
-
     this.idSub = this.route.params.subscribe(params => {
       this.id = params['id'];
       this.albumSub = this.musicData.getAlbumById(this.id).subscribe(data => this.album = data);

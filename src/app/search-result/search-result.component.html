@@ -13,7 +13,7 @@
                     <mat-card-title>{{search.name}}</mat-card-title>
                     <mat-card-subtitle>Artist</mat-card-subtitle>
                 </mat-card-header>
-                <img routerLink="/artist" mat-card-image class="album-cover" src={{search.images[0].url}} alt="artist art">
+                <img [routerLink]="['/artist', search.id]" mat-card-image class="album-cover" src={{search.images[0].url}} alt="artist art">
                 <mat-card-content>
                     <strong>Followers: </strong>{{search.followers.total}}<br />
                     <strong>Popularity: </strong>{{search.popularity}}

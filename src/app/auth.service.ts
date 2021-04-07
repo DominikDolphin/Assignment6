@@ -42,7 +42,8 @@ export class AuthService {
 
   login(user: User): Observable<any> {
     // Attempt to login
-    return this.http.post<any>('http://localhost:8080/api/login', user);
+   // return this.http.post<any>('http://localhost:8080/api/login', user);
+    return this.http.post<any>('https://stormy-brushlands-31139.herokuapp.com/api/user/login', user);
   }
 
   logout(){
@@ -50,6 +51,7 @@ export class AuthService {
   }
 
   register(registerUser) : Observable<any>{
-    return this.http.post(environment.userAPIBase,registerUser);
+   // return this.http.post<any>(environment.userAPIBase,registerUser);
+    return this.http.post<any>("https://stormy-brushlands-31139.herokuapp.com/api/user/register",registerUser);
   }
 }

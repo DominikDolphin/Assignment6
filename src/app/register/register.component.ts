@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   public registerUser : {userName: "", password: "", password2: ""};
   public success : boolean = false;
   public loading : boolean = false;
-  public warning:string;
+  public warning:string = "";
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {

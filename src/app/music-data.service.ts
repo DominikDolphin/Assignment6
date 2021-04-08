@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { SpotifyTokenService } from './spotify-token.service';
+import { environment } from './../environments/environment';
 
 import { mergeMap } from 'rxjs/operators';
 
@@ -9,7 +10,7 @@ import { mergeMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MusicDataService {
-  favouritesList : Array<any> = [];
+  // favouritesList : Array<any> = [];
   constructor(private spotifyToken: SpotifyTokenService, private http: HttpClient) { }  
 
   getNewReleases(): Observable<any> {
@@ -42,6 +43,7 @@ export class MusicDataService {
     }));
   }
 
+  /*
   addToFavourites(id){
     if (!id || id >= 50) 
       return false
@@ -64,4 +66,37 @@ export class MusicDataService {
       }));
     } else return new Observable(o=>{o.next([])});
   }
+  */
+  
+  addToFavourites(id): Observable<[String]> {
+    // TODO: make a PUT request to environment.userAPIBase/favourites/:id to add id to favourites
+    // if (id)
+    // console.log("adding id " + id);
+    //  this.http.put<[String]>(`${environment.userAPIBase}/favourites/${id}`,id);
+    //  return true;
+   return 
+  }
+  
+  removeFromFavourites(id): Observable<any> {
+    return this.http.delete<[String]>(`${environment.userAPIBase}/favourites/${id}`).pipe(mergeMap(favouritesArray => {
+      // TODO: Perform the same tasks as the original getFavourites() method, only using "favouritesArray" from above, instead of this.favouritesList
+      // NOTE: for the empty array, you will need to use o=>o.next({tracks: []}) instead of o=>{o.next([])}
+      favouritesArray.splice(favouritesArray.indexOf(id),1);
+      return this.getFavourites();
+    }));
+  }
+  
+  getFavourites(): Observable<any> {
+    return this.http.get<[String]>(`${environment.userAPIBase}/favourites`).pipe(mergeMap(favouritesArray => {
+      // TODO: Perform the same tasks as the original getFavourites() method, only using "favouritesArray" from above, instead of this.favouritesList
+      // NOTE: for the empty array, you will need to use o=>o.next({tracks: []}) instead of o=>{o.next([])}
+      if (favouritesArray.length > 0){
+        let FavouritesListItems = favouritesArray.join(); //adds comma seperated between elements
+        return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
+          return this.http.get<any>(`https://api.spotify.com/v1/tracks?ids=${FavouritesListItems}`, { headers: { "Authorization": `Bearer ${token}` } });
+        }));
+      } else return new Observable(o=>o.next({tracks: []}));
+    }));
+  }
+  
 }

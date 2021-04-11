@@ -10,7 +10,7 @@ import { mergeMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MusicDataService {
-  // favouritesList : Array<any> = [];
+   favouritesList : Array<any> = [];
   constructor(private spotifyToken: SpotifyTokenService, private http: HttpClient) { }  
 
   getNewReleases(): Observable<any> {
@@ -43,7 +43,7 @@ export class MusicDataService {
     }));
   }
 
-  /*
+  
   addToFavourites(id){
     if (!id || id >= 50) 
       return false
@@ -66,8 +66,8 @@ export class MusicDataService {
       }));
     } else return new Observable(o=>{o.next([])});
   }
-  */
   
+  /*
   addToFavourites(id): Observable<[String]> {
     //console.log(this.http.put<[String]>(`${environment.userAPIBase}/favourites/${id}`, {}));
     return this.http.put<[String]>(`${environment.userAPIBase}/favourites/${id}`, {});
@@ -94,5 +94,6 @@ export class MusicDataService {
       } else return new Observable(o=>o.next({tracks: []}));
     }));
   }
+  */
   
 }

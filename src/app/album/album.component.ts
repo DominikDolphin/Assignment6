@@ -17,16 +17,19 @@ export class AlbumComponent implements OnInit {
 
 
   addToFavourites(trackID){
-    /*if (this.musicData.addToFavourites(trackID) == true){
+    if (this.musicData.addToFavourites(trackID) == true){
       this.snackBar.open("Adding to Favourites...", "Done", { duration: 1500 });
-    }*/
+    } else {
+      this.snackBar.open("Unable to add song to Favorites", "Error", { duration: 1500 });
+    }
+    /*
     this.musicData.addToFavourites(trackID).subscribe(params=>{
       console.log(params)
       this.snackBar.open("Adding to Favourites...", "Done", { duration: 1500 });
     }, error => {
       console.log(error);
       this.snackBar.open("Unable to add song to Favorites", "Error", { duration: 1500 });
-    })
+    })*/
   }
   constructor(@Inject(MatSnackBar) public snackBar: any, private route : ActivatedRoute, private musicData: MusicDataService) { }
 
